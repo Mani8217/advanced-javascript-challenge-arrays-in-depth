@@ -1,9 +1,10 @@
 /*
   You should write the code in this file
 */
-
+//chars.reduce((acc, char) => acc.includes(char) ? acc : [...acc, char], []);
 const getUniqueTypes = pokemons => {
   // *********************************
+
   const uniqueTypes= []
   pokemons.forEach(pokemon =>{
    if(!uniqueTypes.includes(pokemon.type)){
@@ -55,11 +56,8 @@ const getTotalPokemonPowerForType = (type, pokemons) => {
   // *********************************
   const pokPow = pokemons.filter(pokemon => pokemon.type === type)
    .reduce((acc , pokemon) => {
-    
-      
-      return acc + pokemon.power
-      
-   },0)
+     return acc + pokemon.power
+      },0)
    return pokPow;
  
   // *********************************
@@ -69,6 +67,17 @@ const getTotalPokemonPowerForType = (type, pokemons) => {
 const getTypeAggregatedInformation = (type, pokemons) => {
   // *********************************
 
+  const result = pokemons.filter(pokemon => pokemon.type === type)
+  .reduce((acc, pok)=> {
+   let names = result.map(pokemon => {
+    return names.push(pokemon.name)
+   });
+   return {...acc , "type" : pok.type , "name":names , "power":pok.power}
+
+   
+
+  },{})
+  return result
   // *********************************
 };
 

@@ -4,42 +4,71 @@
 
 const getUniqueTypes = pokemons => {
   // *********************************
-  // Write your code here
+  const uniqueTypes= []
+  pokemons.forEach(pokemon =>{
+   if(!uniqueTypes.includes(pokemon.type)){
+     uniqueTypes.push(pokemon.type)
+   }
+  } )
+  return uniqueTypes;
   // *********************************
 };
 
 
 const orderByPower = pokemons => {
   // *********************************
-  // Write your code here
+  pokemons.sort((a,b)=> {
+    return a.power - b.power
+  })
+    
+  return pokemons
   // *********************************
 };
 
 
 const filterByType = (type, pokemons) => {
   // *********************************
-  // Write your code here
+  const myPokemon = pokemons.filter(pokemon => {
+    return pokemon.type === type
+  })
+return myPokemon;
   // *********************************
 };
 
 
 const getPokemonNamesForType = (type, pokemons) => {
   // *********************************
-  // Write your code here
+  const pokName =[]
+  pokemons.forEach(pokemon => {
+   if(pokemon.type === type){
+      pokName.push(pokemon.name )
+   }
+  
+
+ })
+return pokName;
   // *********************************
 };
 
 
 const getTotalPokemonPowerForType = (type, pokemons) => {
   // *********************************
-  // Write your code here
+  const pokPow = pokemons.filter(pokemon => pokemon.type === type)
+   .reduce((acc , pokemon) => {
+    
+      
+      return acc + pokemon.power
+      
+   },0)
+   return pokPow;
+ 
   // *********************************
 };
 
 
 const getTypeAggregatedInformation = (type, pokemons) => {
   // *********************************
-  // Write your code here
+
   // *********************************
 };
 

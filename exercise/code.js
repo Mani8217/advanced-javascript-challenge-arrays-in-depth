@@ -67,16 +67,13 @@ const getTotalPokemonPowerForType = (type, pokemons) => {
 const getTypeAggregatedInformation = (type, pokemons) => {
   // *********************************
 
-  const result = pokemons.filter(pokemon => pokemon.type === type)
+  return pokemons.filter(pokemon => pokemon.type === type)
   .reduce((acc, pok)=> {
    let names = result.map(pokemon => {
     return names.push(pokemon.name)
    });
-   return {...acc , "type" : pok.type , "name":names , "power":pok.power}
-
-   
-
-  },{})
+   ({...acc , "type" : pok.type , "name":names , "power":pok.power})
+  })}
   return result
   // *********************************
 };
